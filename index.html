@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matko | M3 Unique</title>
     
-    <link rel="icon" type="image/gif" href="https://github.com/Matko802/About-me/blob/main/Assets/animated%20shark.gif?raw=true">
+    <link rel="icon" type="image/gif" href="Assets/animated%20shark.gif">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -29,10 +29,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000; /* Fallback black */
+            background: #000;
             overflow: hidden;
         }
 
+        /* Video Background Styling */
         #bg-video {
             position: fixed;
             top: 50%;
@@ -199,13 +200,13 @@
 </head>
 <body>
 
-    <video autoplay muted loop playsinline id="bg-video" oncanplay="this.play()">
-        <source src="https://github.com/Matko802/About-me/raw/main/Assets/Backround/63885-508273140_medium.webm?raw=true" type="video/webm">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="Assets/Backround/63885-508273140_medium.webm" type="video/webm">
     </video>
 
     <div class="main-wrapper">
         <div class="profile-container">
-            <img src="https://github.com/Matko802/About-me/blob/main/Assets/shark%20fursona%20animated.gif?raw=true" class="avatar">
+            <img src="Assets/shark%20fursona%20animated.gif" class="avatar">
             <div class="info">
                 <h1>Matko</h1>
                 <div class="handle" id="copyHandle" onclick="copyHandleText()">@Matko802</div>
