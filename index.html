@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matko | M3 Unique</title>
     
-    <link rel="icon" type="image/gif" href="Assets/animated%20shark.gif">
+    <link rel="icon" type="image/gif" href="https://github.com/Matko802/About-me/blob/main/Assets/animated%20shark.gif?raw=true">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -17,6 +17,7 @@
             --color-reddit: #FF4500;
             --color-steam: #171D25;
             --color-modrinth: #1BD96A;
+            --accent: #64c8ff;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,23 +30,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000;
+            background: url('https://github.com/Matko802/About-me/blob/main/Assets/Backround/63885-508273140_medium-ezgif.com-video-to-gif-converter.gif?raw=true') no-repeat center center fixed;
+            background-size: cover;
             overflow: hidden;
-        }
-
-        /* Video Background Styling */
-        #bg-video {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            filter: brightness(0.8);
         }
 
         .main-wrapper {
@@ -60,117 +47,91 @@
             padding: 20px;
         }
 
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
         .avatar { 
             width: 130px; height: 130px; 
             border-radius: 50%; 
             object-fit: cover;
             border: 3px solid var(--md-outline);
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            margin-bottom: 15px;
         }
 
-        .info h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            font-weight: 700;
-            color: #ffffff;
-        }
+        .info h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; margin-bottom: 5px; }
 
         .handle {
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
             transition: 0.2s;
-            margin-top: -5px;
-            display: inline-block;
+            margin-bottom: 25px;
         }
+        .handle:hover { color: #fff; text-decoration: underline; }
 
-        .handle:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .bio-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.85rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0,0,0,1);
-            margin-top: 10px;
-        }
-
-        .parrot-gif { height: 22px; width: auto; }
-
-        .nav-buttons { display: flex; gap: 15px; margin-bottom: 25px; }
+        .nav-buttons { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
         
         .nav-item {
             background: rgba(0, 0, 0, 0.65);
             backdrop-filter: blur(12px);
-            padding: 12px 30px;
+            padding: 10px 20px;
             border-radius: 12px;
             color: #fff;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
             border: 1px solid var(--md-outline);
             transition: 0.3s;
             text-transform: uppercase;
         }
-
         .nav-item:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); border-color: #fff; }
 
         .expand-section {
             display: none;
             width: 100%;
-            max-height: 400px;
+            max-height: 350px;
             overflow-y: auto;
             background: rgba(0, 0, 0, 0.75); 
-            backdrop-filter: blur(30px) saturate(160%);
+            backdrop-filter: blur(30px);
             padding: 25px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
             animation: slideIn 0.4s ease-out;
         }
 
-        .expand-section::-webkit-scrollbar { width: 5px; }
-        .expand-section::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        /* --- DARK CUSTOM SCROLLBAR --- */
+        .expand-section::-webkit-scrollbar {
+            width: 8px;
+        }
+        .expand-section::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .expand-section::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15); /* Darker thumb */
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0); /* Creates padding effect */
+            background-clip: padding-box;
+        }
+        .expand-section::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3); /* Lighter on hover */
+            background-clip: padding-box;
+        }
 
         @keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        .about-list { list-style: none; text-align: left; }
+        .about-list li { margin-bottom: 12px; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        .parrot-gif { height: 24px; width: auto; }
+        .time-box { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: var(--accent); }
+
         .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        .social-tile {
-            aspect-ratio: 1.3 / 1; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);
-        }
-        .social-tile:hover { transform: scale(1.08); filter: brightness(1.2); }
-        .social-tile img { width: 40%; height: 40%; object-fit: contain; }
-
-        .discord { background: var(--color-discord); }
-        .github { background: var(--color-github); }
-        .github img { filter: brightness(0) invert(1); }
-        .reddit { background: var(--color-reddit); }
-        .steam { background: var(--color-steam); }
-        .modrinth { background: var(--color-modrinth); }
-
-        .repo-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px; border-radius: 12px; margin-bottom: 12px;
-            display: block; text-decoration: none; color: white;
-            border: 1px solid rgba(255, 255, 255, 0.05); text-align: left;
-        }
-        .repo-card strong { display: block; color: #64c8ff; }
+        .social-tile { aspect-ratio: 1.3 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .social-tile:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .social-tile img { width: 40%; }
+        
+        .repo-card { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 10px; display: block; text-decoration: none; color: white; text-align: left; transition: 0.2s; border: 1px solid transparent; }
+        .repo-card:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.1); }
+        .repo-card strong { color: var(--accent); display: block; }
 
         .gemini-badge {
             position: fixed;
@@ -188,48 +149,47 @@
             opacity: 0.8;
             pointer-events: none;
         }
-
         .gemini-logo-img { width: 18px; height: 18px; object-fit: contain; }
 
         @media (max-width: 500px) {
-            .nav-buttons { flex-direction: column; width: 100%; }
-            .info h1 { font-size: 2.5rem; }
             .gemini-badge { left: 50%; transform: translateX(-50%); bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="Assets/Backround/63885-508273140_medium.webm" type="video/webm">
-    </video>
-
     <div class="main-wrapper">
-        <div class="profile-container">
-            <img src="Assets/shark%20fursona%20animated.gif" class="avatar">
-            <div class="info">
-                <h1>Matko</h1>
-                <div class="handle" id="copyHandle" onclick="copyHandleText()">@Matko802</div>
-                
-                <div class="bio-row">
-                    <span>SHY • VR • SLOVAK</span>
-                    <img src="https://github.com/Matko802/About-me/blob/main/Assets/emojis/8215_slovakiaparrot.gif?raw=true" class="parrot-gif">
-                </div>
-            </div>
+        <img src="https://github.com/Matko802/About-me/blob/main/Assets/shark%20fursona%20animated.gif?raw=true" class="avatar">
+        <div class="info">
+            <h1>Matko</h1>
+            <div class="handle" onclick="copyHandleText()">@Matko802</div>
         </div>
 
         <div class="nav-buttons">
+            <div class="nav-item" onclick="toggleSection('about-section')">About Me</div>
             <div class="nav-item" onclick="toggleSection('projects-section')">Projects</div>
             <div class="nav-item" onclick="toggleSection('contact-section')">Contact</div>
         </div>
 
+        <div id="about-section" class="expand-section">
+            <ul class="about-list">
+                <li><span>•</span> Shy</li>
+                <li><span>•</span> Likes playing on VR</li>
+                <li><span>•</span> Slovak <img src="https://github.com/Matko802/About-me/blob/main/Assets/emojis/8215_slovakiaparrot.gif?raw=true" class="parrot-gif"></li>
+            </ul>
+            <div class="time-box">
+                Local Time (Slovakia): <br>
+                <strong id="local-time">00:00:00</strong>
+            </div>
+        </div>
+
         <div id="contact-section" class="expand-section">
             <div class="social-grid">
-                <a href="https://discord.com/users/105221620554242869" target="_blank" class="social-tile discord"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/discord.svg"></a>
-                <a href="https://github.com/Matko802" target="_blank" class="social-tile github"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/github.svg"></a>
-                <a href="https://www.reddit.com/user/SeriousPin5617/" target="_blank" class="social-tile reddit"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/reddit.svg"></a>
-                <a href="https://steamcommunity.com/profiles/76561199493827865/" target="_blank" class="social-tile steam"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/steam.svg"></a>
-                <a href="https://modrinth.com/user/Matko802" target="_blank" class="social-tile modrinth"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/modrinth.svg"></a>
+                <a href="https://discord.com/users/105221620554242869" target="_blank" class="social-tile" style="background:var(--color-discord)"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/discord.svg"></a>
+                <a href="https://github.com/Matko802" target="_blank" class="social-tile" style="background:var(--color-github)"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/github.svg" style="filter: brightness(0) invert(1);"></a>
+                <a href="https://www.reddit.com/user/SeriousPin5617/" target="_blank" class="social-tile" style="background:var(--color-reddit)"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/reddit.svg"></a>
+                <a href="https://steamcommunity.com/profiles/76561199493827865/" target="_blank" class="social-tile" style="background:var(--color-steam)"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/steam.svg"></a>
+                <a href="https://modrinth.com/user/Matko802" target="_blank" class="social-tile" style="background:var(--color-modrinth)"><img src="https://raw.githubusercontent.com/Matko802/About-me/main/Assets/Icons/modrinth.svg"></a>
             </div>
         </div>
 
@@ -244,50 +204,47 @@
     </div>
 
     <script>
-        function copyHandleText() {
-            const handle = document.getElementById('copyHandle');
-            const originalText = handle.innerText;
-            navigator.clipboard.writeText(originalText).then(() => {
-                handle.innerText = "COPIED!";
-                handle.style.color = "#1BD96A";
-                setTimeout(() => {
-                    handle.innerText = originalText;
-                    handle.style.color = "";
-                }, 1500);
+        function updateTime() {
+            const options = { timeZone: 'Europe/Bratislava', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            const slovakTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+            document.getElementById('local-time').innerText = slovakTime;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function toggleSection(id) {
+            const sections = ['about-section', 'projects-section', 'contact-section'];
+            sections.forEach(s => {
+                const el = document.getElementById(s);
+                if (s === id) {
+                    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+                    if (id === 'projects-section' && el.style.display === 'block') fetchRepos();
+                } else {
+                    el.style.display = 'none';
+                }
             });
         }
 
-        let hasFetched = false;
         async function fetchRepos() {
-            if (hasFetched) return;
             const list = document.getElementById('repo-list');
-            list.innerHTML = '<p style="text-align:center; opacity:0.6; font-size:0.75rem;">// scanning_github_matko802</p>';
+            if (list.innerHTML !== '') return;
+            list.innerHTML = '<p style="opacity:0.5; font-size:0.8rem;">Loading repositories...</p>';
             try {
-                const res = await fetch('https://api.github.com/users/Matko802/repos?sort=updated&per_page=15');
+                const res = await fetch('https://api.github.com/users/Matko802/repos?sort=updated');
                 const repos = await res.json();
                 list.innerHTML = '';
                 repos.forEach(r => {
                     list.innerHTML += `<a href="${r.html_url}" target="_blank" class="repo-card">
                         <strong>> ${r.name}</strong>
-                        <small style="font-size:0.7rem; opacity:0.7;">${r.description || 'Public GitHub Repository'}</small>
+                        <small style="opacity:0.7; font-size:0.7rem;">${r.description || 'GitHub Project'}</small>
                     </a>`;
                 });
-                hasFetched = true;
-            } catch (e) { list.innerHTML = '<p style="text-align:center; font-size:0.75rem;">Connection error.</p>'; }
+            } catch (e) { list.innerHTML = 'Error loading projects.'; }
         }
 
-        function toggleSection(id) {
-            const sections = ['projects-section', 'contact-section'];
-            sections.forEach(s => {
-                const el = document.getElementById(s);
-                if (s === id) {
-                    const isVisible = el.style.display === 'block';
-                    el.style.display = isVisible ? 'none' : 'block';
-                    if (!isVisible && id === 'projects-section') fetchRepos();
-                } else {
-                    el.style.display = 'none';
-                }
-            });
+        function copyHandleText() {
+            navigator.clipboard.writeText("@Matko802");
+            alert("Handle copied!");
         }
     </script>
 </body>
